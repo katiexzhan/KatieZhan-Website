@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)file:///C:/Users/Katie%20Z/AppData/Local/Temp/Temp1_TwilioTemplate.zip/TwilioTemplate/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Buy your very own Sanrio plush now! Cute, cuddly, and gift-friendly, everyone deserves their very own plushie.">
+    <meta name="author" content="kzhan138">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./My first website_files/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Title of your Website -->
+    <title>Sanrio Plushie</title>
+    <link href="./My first website_files/product.css" rel="stylesheet">
+  </head>
+  <body>
+  <nav class="site-header sticky-top py-1">
+    <!-- Top Menu Bar -->
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-1" href="https://www.sanrio.com/" target="_blank">Sanrio</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-2" href="https://www.sanrio.com/collections/all-sanrio-characters" target="_blank">Characters</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-3" href="https://www.sanrio.com/blogs/hellokittycafe" target="_blank">Cafe</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-4" href="https://www.sanrio.com/blogs/sanrio" target="_blank">Blog</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-5" href="https://www.sanrio.com/pages/privacy-policy" target="_blank">Private Policies</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-6" href="https://www.sanrio.com/pages/store-locator-2023" target="_blank">Store Locator</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-7" href="https://www.sanrio.com/pages/about-sanrio" target="_blank">About Sanrio</a>
+    </div>
+</nav>
+<!-- Main Header Section h1-->
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-0 text-center bg-light">
+    <div class="col-md-8 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Order your own Sanrio plushie now!</h1>
+        <p class="lead font-weight-normal">Cute, cuddly, and full of love. You can never go wrong with any type of Sanrio plushie! Start your very own collection as there are tons of options to choose from!</p>
+        <a class="btn btn-outline-secondary" href="https://www.sanrio.com/collections/new">Coming soon</a>
+    </div>
+</div>
+<!-- Left Tile -->
+<div class="d-md-flex flex-md-equal w-100">
+    <div class="bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+            <h2 class="display-5">Sign up</h2>
+            <p class="lead">Sign up now to get instant access to our educational content</p>
+        </div>
+        <!-- Web form when submitted will send a text message -->
+        <form class="p-2" onsubmit="sendTextMessage(); return false;">
+            <!-- Full Name Form Field -->
+            <div class="form-group">
+                <label for="example-first-name">Full Name</label>
+                <input type="text" value="Full Name" class="form-control" id="example-first-name" aria-describedby="emailHelp">
+            </div>
+            <!-- Phone Number Form Field -->
+            <div class="form-group">
+                <label for="example-tel-input">Phone number</label>
+                <input type="tel" class="form-control" value="1408555555" id="example-tel-input">
+            </div>
+            <!-- JavaScript that handles onSubmit logic -->
+            <!-- Configure the XHR request below with your own credentials -->
+            <script>
+            function sendTextMessage() {
+                console.log("Hello world!");
+                var xhr = new XMLHttpRequest();
+                var accountSID = "ACe665d77231bec0e4ebc0f8b3bb2242bc";
+                var authToken = "899b78c0b7fd049a1aec2ac228c4237a";
+                var base64encoded = accountSID + ":" + authToken;
+                var params = "To=" + document.getElementById('example-tel-input').value + "&From=" + "+18449551929" + "&Body=" + "Hello " + document.getElementById('example-first-name').value + "subscribed to sanrio!"
+                xhr.open("POST", "https://api.twilio.com/2010-04-01/Accounts/" + accountSID + "/Messages.json", true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.setRequestHeader('Authorization', 'Basic ' + btoa(base64encoded));
+                xhr.send(params);
+            }
+            </script>
+            <!-- Submit button that will execute the sendTextMessage function -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <!-- Right Tile -->
+    <div class="bg-light pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+            <h2 class="display-5">Background on Sanrio</h2>
+            <p class="lead">Sanrio is a retail company that originated from Japan, they have their own set of characters that make up a show as well. Popular products include plushies, stationary, as well as accessories.</p>
+            <img class="mx-auto" src="example_image.png" height="250px">
+        </div>
+        <div class="mx-auto" style="width: 80%; height: 100px; border-radius: 21px 21px 0 0;"></div>
+    </div>
+</div>
+</body></html>
